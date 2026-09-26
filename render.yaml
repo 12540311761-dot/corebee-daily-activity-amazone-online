@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: mja-berlian-online
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: APP_VERSION
+        value: 2.1.0-free
+      - key: APP_URL
+        value: https://mja-berlian-online.onrender.com/
